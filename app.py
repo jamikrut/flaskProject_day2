@@ -1,6 +1,6 @@
 from flask import Flask, render_template, abort
 import random
-from model.country import db, find_by_name
+from model.country import db, find_by_name, find_by_index
 
 app = Flask(__name__)
 
@@ -44,10 +44,22 @@ def country_by_name(name: str):
         abort(404, ex)
     return render_template('country.html', country=found_country)
 
+
 # podejemy inta - idzie do innego end pointa
 @app.route('/countries/<int:name>')
 def other_func(name: int):
     return str(name)
+
+
+# mini lab2
+@app.route('/countries/byindex/<int:index>')
+def country_by_id(index: int):
+    try:
+        found_country = find_by_index(index)
+    except IndexError:
+        abort(404, f"Country by index {index} cannot be found")
+    return render_template('country.html', country=found_country)
+
 
 # podgląd mappingów
 print(app.url_map)

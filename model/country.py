@@ -13,4 +13,8 @@ def find_by_name(name: str):
     raise ValueError(f"Country {name} not found!")
 
 
+def find_by_index(index: str):
+    return db[index]
+
+
 db = load_db()
