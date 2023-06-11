@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pudełka</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color1 }};
+            border: 3px solid gray;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color2 }};
+            border: 3px solid gray;
+        }
+
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color3 }};
+            border: 3px solid gray;
+        }
+
+        #box4 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color4 }};
+            border: 3px solid gray;
+        }
+
+        #box5 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color5 }};
+            border: 3px solid gray;
+        }
+
+        #box6 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color6 }};
+            border: 3px solid gray;
+        }
+
+        #box7 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color7 }};
+            border: 3px solid gray;
+        }
+
+        #box8 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color8 }};
+            border: 3px solid gray;
+        }
+
+        #box9 {
+            width: 100px;
+            height: 100px;
+            background-color: {{ color9 }};
+            border: 3px solid gray;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            let clickCounter = 0;
+
+            document.addEventListener('click', function () {
+                document.getElementById('click-counter').textContent = ++clickCounter;
+            });
+
+        };
+    </script>
+</head>
+<body>
+<div id="box1">
+    <p>Liczba kliknięć: <span id="click-counter">0</span></p>
+</div>
+<br>
+<div id="box2">Box 2</div>
+<br>
+<div id="box3">Box 3</div>
+<br>
+<div id="box4">Box 4</div>
+<br>
+<div id="box5">Box 5</div>
+<br>
+<div id="box6">Box 6</div>
+<br>
+<div id="box7">Box 7</div>
+<br>
+<div id="box8">Box 8</div>
+<br>
+<div id="box9">Box 9</div>
+</body>
+</html>
