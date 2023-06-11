@@ -1,6 +1,7 @@
 from flask import Flask, render_template, abort, url_for
 import random
-from model.country import db, find_by_name, find_by_index
+from model.country import db, find_by_name, find_by_index, find_continent_by_cc, continent_map
+import pycountry_convert
 
 app = Flask(__name__)
 
@@ -47,13 +48,14 @@ def country_by_name(name: str):
 
 # mini lab2
 # podejemy inta - idzie do innego end pointa
-@app.route('/countries/<int:index>')
+@app.route('/countries/index/<int:index>')
 def country_by_index(index: int):
     try:
         found_country = find_by_index(index)
+        found_country['continent'] = find_continent_by_cc(found_country['cc'])
     except IndexError:
         abort(404, f"Country by index {index} cannot be found")
-    return render_template('country_index.html', country=found_country, index=index)
+    return render_template('country_index.html', country=found_country, index=index, continent_map=continent_map)
 
 
 # podgląd mappingów
